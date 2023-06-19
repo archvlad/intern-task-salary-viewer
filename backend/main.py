@@ -51,7 +51,7 @@ def get_password_hash(password: str) -> str:
 @app.post('/login')
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     mydb = mysql.connector.connect(
-        host="localhost", user="root", password="root", database="salary_viewer_db")
+        host="db", user="username", password="password123", database="salary_viewer_db")
     mycursor = mydb.cursor()
 
     username = form_data.username
@@ -86,7 +86,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
 @app.get('/me')
 def me(user: User = Depends(get_current_user)):
     mydb = mysql.connector.connect(
-        host="localhost", user="root", password="root", database="salary_viewer_db")
+        host="db", user="username", password="password123", database="salary_viewer_db")
     mycursor = mydb.cursor()
     mycursor.execute('SELECT * FROM users WHERE user_id = %s', (user['user'],))
     myresult = mycursor.fetchall()

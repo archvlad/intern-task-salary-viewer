@@ -1,0 +1,35 @@
+version: '3.8'
+
+networks:
+  salary_viewer:
+
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - 8000:8000
+    networks:
+      - salary_viewer
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 8080:8080
+    networks:
+      - salary_viewer
+
+  db:
+    image: mysql/mysql-server:latest
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    restart: always
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: salary_viewer_db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password123
+    networks:
+      - salary_viewer
