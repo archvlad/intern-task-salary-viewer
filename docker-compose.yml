@@ -20,9 +20,7 @@ services:
       - salary_viewer
 
   db:
-    image: mysql/mysql-server:latest
-    volumes:
-      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    build: ./db
     restart: always
     expose:
       - 3306
