@@ -24,16 +24,7 @@ p {
     word-wrap: break-word;
 }
 
-.nav_links {
-    background-color: beige;
-    display: flex;
-}
-
 a {
     text-decoration: none;
-}
-
-.container {
-    margin: 15px;
 }
 </style>

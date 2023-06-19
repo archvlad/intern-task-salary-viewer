@@ -33,16 +33,12 @@ p {
     word-wrap: break-word;
 }
 
-.nav_links {
-    background-color: beige;
-    display: flex;
-}
-
 a {
     text-decoration: none;
 }
 
 div {
     text-align: center;
+    margin: 15px;
 }
 </style>
